@@ -1,0 +1,136 @@
+.clear {
+	clear: both;
+	width:100%;
+	height: 0px;
+}
+
+.fb_line {
+	position: static;
+	display: inline;
+	height: 32px;
+	width: 100%;
+	float: left;
+}
+
+.fb_icon {
+	height: 32px;
+	width: 32px;
+	opacity: 0.5;
+}
+
+.fb_icon:hover {
+	opacity: 1;
+	cursor: pointer;
+}
+
+.fb_happy {
+	position: relative;
+	margin-right: 10px;
+	background-image: url( '/../img/happy.svg' );
+	background-size: 100% auto;
+	float: right;
+}
+
+.fb_sad {
+	position: relative;
+	margin-right: 10px;
+	background-image: url( '/../img/sad.svg' );
+	background-size: 100% auto;
+	float: right;
+}
+
+.fb_feedback {
+	position: relative;
+	margin-right: 10px;
+	background-image: url( '/../img/feedback.svg' );
+	background-size: 100% auto;
+	float: right;
+}
+
+#fb_feedback {
+	padding: 12px;
+	position: absolute;
+	left: 35%;
+	top: 10%;
+	width: 30%;
+	height: 50%;
+	background: lightblue;
+	font-family: 'Open Sans', sans-serif;
+	box-shadow: 0 0 6px rgb(32,32,32);
+}
+
+#fb_feedbackTitle {
+	position: absolute;
+	top: 2%;
+	left: 2%;
+	height: auto;
+	font-size: 36px;
+}
+
+#fb_feedbackForm {
+	display: inline-block;
+	position: absolute;
+	top: 15%;
+	height: 85%;
+	left: 2%;
+	width: 96%;
+}
+
+#fb_feedbackForm input[type='checkbox'] {
+	margin-bottom: 8px;
+	color: rgb(64,64,64);
+}
+
+#fb_tooltip {
+	position: absolute;
+	height: auto;
+	width: 140px;
+	background: lightblue;
+	text-align: center;
+	font-family: 'Open Sans', sans-serif;
+	padding: 8px;
+}
+
+#fb_feedbackText {
+	position: absolute;
+	width: 96%;
+	left: 2%;
+	top: 35%;
+	height: 40%;
+	resize: none;
+}
+
+#fb_skipBtn {
+	float: right;
+	font-family: 'Open Sans', sans-serif;
+	color: #ffffff;
+	font-size: 12px;
+	background: #0b4b5e;
+	padding: 5px 5px 5px 5px;
+	text-decoration: none;
+}
+
+#fb_skipBtn:hover {
+	background: #3cb0fd;
+	text-decoration: none;
+}
+
+#fb_submitBtn {
+	position: absolute;
+	left: 2%;
+	bottom: 4%;
+	-webkit-border-radius: 6;
+	-moz-border-radius: 6;
+	border-radius: 6px;
+	font-family: 'Open Sans', sans-serif;
+	color: #ffffff;
+	font-size: 16px;
+	background: #0b4b5e;
+	padding: 12px;
+	text-decoration: none;
+}
+
+#fb_submitBtn:hover {
+	background: #3cb0fd;
+	text-decoration: none;
+}
