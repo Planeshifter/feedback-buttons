@@ -26,7 +26,7 @@
 .fb_happy {
 	position: relative;
 	margin-right: 10px;
-	background-image: url( '/../img/happy.svg' );
+	background-image: url( './../img/lightbulb.svg' );
 	background-size: 100% auto;
 	float: right;
 }
@@ -34,7 +34,7 @@
 .fb_sad {
 	position: relative;
 	margin-right: 10px;
-	background-image: url( '/../img/sad.svg' );
+	background-image: url( './../img/confused.svg' );
 	background-size: 100% auto;
 	float: right;
 }
@@ -42,7 +42,7 @@
 .fb_feedback {
 	position: relative;
 	margin-right: 10px;
-	background-image: url( '/../img/feedback.svg' );
+	background-image: url( './../img/feedback.svg' );
 	background-size: 100% auto;
 	float: right;
 }
