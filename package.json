@@ -1,6 +1,6 @@
 {
   "name": "@planeshifter/feedback-buttons",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A jQuery plugin for gathering user feedback about site elements.",
   "author": {
     "name": "Philipp Burckhardt",
