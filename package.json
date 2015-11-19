@@ -1,5 +1,5 @@
 {
-  "name": "feedback-buttons",
+  "name": "@planeshifter/feedback-buttons",
   "version": "0.0.0",
   "description": "A jQuery plugin for gathering user feedback about site elements.",
   "author": {
@@ -43,7 +43,7 @@
     "istanbul": "^0.3.15",
     "jshint": "2.x.x",
     "jshint-stylish": "2.x.x",
-    "mocha": "2.x.x",
+    "mocha": "2.x.x"
   },
   "license": "MIT"
 }
