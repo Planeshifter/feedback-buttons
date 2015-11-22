@@ -61,10 +61,6 @@ module.exports = getUserData;
 (function (global){
 'use strict';
 
-if ( typeof module === "object" && typeof module.exports === "object" ) {
-
-}
-
 // MODULES //
 
 var $ = (typeof window !== "undefined" ? window['$'] : typeof global !== "undefined" ? global['$'] : null);
@@ -79,7 +75,7 @@ var showFeedback = require( './showFeedback.js' ),
 
 // JQUERY FEEDBACK BUTTONS PLUGIN //
 
-$.fn.feedback = function( config ) {
+$.fn.feedback = function feedback( config ) {
 	var str,
 		tooltip,
 		$fb_icon;
@@ -137,8 +133,13 @@ $.fn.feedback = function( config ) {
 	return this;
 };
 
+
+// EXPORTS //
+
+module.exports = $.fn.feedback;
+
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./showFeedback.js":5,"./submitConfused.js":7,"./submitUnderstood.js":8}],4:[function(require,module,exports){
+},{"./showFeedback.js":5,"./submitConfused.js":7,"./submitUnderstood.js":9}],4:[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -190,7 +191,7 @@ var $ = (typeof window !== "undefined" ? window['$'] : typeof global !== "undefi
 
 // FUNCTIONS //
 
-var sendData = require( './sendData.js' );
+var submitFeedback = require( './submitFeedback.js' );
 
 
 // SHOW FEEDBACK //
@@ -231,20 +232,18 @@ function showFeedback( element, config ) {
 		$fb_feedback.css( 'top', verticalPosition + w*0.1 );
 
 		$( '#fb_feedbackForm' ).submit( function onSubmit( event ) {
-			var data = {};
-			for ( var i = 1; i <= 4; i++ ) {
-				data[ 'check' + i ] = $('#check' + i ).prop('checked');
-			}
-			data.comments = $( '#fb_feedbackText' ).val();
-			data.type = 'feedback';
-			data.id = element.attr( 'id' );
-			sendData( data, config );
+			submitFeedback( element, config );
+			$( '#fb_feedback' ).fadeOut();
+			// Reset elements:
+			$( '#fb_feedbackText' ).val( '' );
+			$( '#fb_feedbackForm :checkbox').prop( 'checked', false );
 			event.preventDefault();
 		});
 		$( '#fb_skipBtn' ).click( function onClick() {
 			$fb_feedback.fadeOut();
 		});
 	} else {
+		$fb_feedback = $( '#fb_feedback' );
 		$fb_feedback.css( 'top', verticalPosition + w*0.1 );
 		$fb_feedback.fadeIn();
 	}
@@ -256,7 +255,7 @@ function showFeedback( element, config ) {
 module.exports = showFeedback;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./sendData.js":4}],6:[function(require,module,exports){
+},{"./submitFeedback.js":8}],6:[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -348,6 +347,48 @@ function submitConfused( element, config ) {
 module.exports = submitConfused;
 
 },{"./getUserData.js":2,"./sendData.js":4,"./showFeedbackResponse.js":6}],8:[function(require,module,exports){
+(function (global){
+'use strict';
+
+// MODULES //
+
+var $ = (typeof window !== "undefined" ? window['$'] : typeof global !== "undefined" ? global['$'] : null);
+
+
+// FUNCTIONS //
+
+var sendData = require( './sendData.js' ),
+	showFeedbackResponse = require( './showFeedbackResponse.js' );
+
+// SUBMIT FEEDBACK //
+
+/**
+* FUNCTION: submitFeedback( element )
+*	Submits filled-out feedback form to server.
+*
+* @param {Object} element - DOM element to collect feedback for
+* @param {Object} config - server configuration
+* @returns {Void}
+*/
+function submitFeedback( element, config ) {
+	var data = {};
+	for ( var i = 1; i <= 4; i++ ) {
+		data[ 'check' + i ] = $('#check' + i ).prop('checked');
+	}
+	data.comments = $( '#fb_feedbackText' ).val();
+	data.type = 'feedback';
+	data.id = element.attr( 'id' );
+	sendData( data, config );
+	showFeedbackResponse( 'feedback' );
+} // end FUNCTION submitFeedback()
+
+
+// EXPORTS //
+
+module.exports = submitFeedback;
+
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"./sendData.js":4,"./showFeedbackResponse.js":6}],9:[function(require,module,exports){
 'use strict';
 
 // FUNCTIONS //
