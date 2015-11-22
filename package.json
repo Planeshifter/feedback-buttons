@@ -13,11 +13,12 @@
     }
   ],
   "scripts": {
+    "bundle": "browserify lib/index.js --external jquery --outfile dist/feedback.js",
     "test": "make test",
     "test-cov": "make test-cov",
     "coveralls": "make coveralls"
   },
-  "main": "",
+  "main": "lib/index.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/planeshifter/feedback-buttons.git"
@@ -33,11 +34,20 @@
     "url": "https://github.com/planeshifter/feedback-buttons/issues"
   },
   "dependencies": {
-    "browserify": "^11.2.0",
     "jquery": "^2.1.4"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "browserify-shim": {
+    "jquery": "global:$"
   },
   "devDependencies": {
     "bower": "^1.4.1",
+    "browserify": "^11.2.0",
+    "browserify-shim": "^3.8.11",
     "chai": "3.x.x",
     "coveralls": "^2.11.2",
     "istanbul": "^0.3.15",
